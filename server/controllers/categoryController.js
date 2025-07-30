@@ -1,3 +1,6 @@
+const asyncHandler = require('express-async-handler'); // Add this import
+const Category = require('../models/Category');
+
 // Get all categories
 exports.getCategories = asyncHandler(async (req, res) => {
   const categories = await Category.find().sort({ name: 1 });
