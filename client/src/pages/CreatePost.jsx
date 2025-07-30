@@ -3,7 +3,7 @@ import PostForm from '../components/PostForm';
 import { useNavigate } from 'react-router-dom';
 import { postService } from '../services/api';
 import { useContext } from 'react';
-import  AuthContext  from '../context/AuthContext';
+import {AuthContext}  from '../context/AuthContext';
 
 export default function CreatePost() {
   const navigate = useNavigate();

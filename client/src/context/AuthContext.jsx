@@ -1,9 +1,12 @@
 // src/context/AuthContext.jsx
 import { createContext, useState, useEffect } from 'react';
 
-const AuthContext = createContext();
-export default AuthContext;
-
+// ✅ Exporting AuthContext as named export
+export const AuthContext = createContext({
+  currentUser: null,
+  login: () => {},
+  logout: () => {},
+});
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);

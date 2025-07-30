@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import {AuthProvider} from './context/AuthContext';
 import Home from './pages/Home';
 import PostDetail from './pages/PostDetail';
 import CreatePost from './pages/CreatePost';
@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 
+// ✅ Corrected App.jsx
 export default function App() {
   return (
     <AuthProvider>
@@ -18,7 +19,11 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/create" element={<ProtectedRoute><CreatePost /> </ProtectedRoute> } />
+            
+            {/* Protected Route */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/create" element={<CreatePost />} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>
